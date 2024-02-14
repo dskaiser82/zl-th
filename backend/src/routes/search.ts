@@ -32,5 +32,6 @@ export const searchMiddleware = async (
   }
   const foundRecipes = await RecipeModel.find(query)
   const builtRecipes = foundRecipes.map(recipeCleaner)
-  res.send(builtRecipes)
+  // res.send(builtRecipes)
+  res.send({ name: "denny" })
 }

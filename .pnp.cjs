@@ -675,6 +675,10 @@ const RAW_RUNTIME_STATE =
       "npm:1.5.4"\
     ],\
     [\
+      "@types/cors",\
+      "npm:2.8.17"\
+    ],\
+    [\
       "@types/emscripten",\
       "npm:1.39.10"\
     ],\
@@ -1465,6 +1469,10 @@ const RAW_RUNTIME_STATE =
     [\
       "core-util-is",\
       "npm:1.0.3"\
+    ],\
+    [\
+      "cors",\
+      "npm:2.8.5"\
     ],\
     [\
       "cosmiconfig",\
@@ -9243,6 +9251,16 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/cors", [\
+      ["npm:2.8.17", {\
+        "packageLocation": "./.yarn/cache/@types-cors-npm-2.8.17-2556d16051-469bd85e29.zip/node_modules/@types/cors/",\
+        "packageDependencies": [\
+          ["@types/cors", "npm:2.8.17"],\
+          ["@types/node", "npm:15.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/emscripten", [\
       ["npm:1.39.10", {\
         "packageLocation": "./.yarn/cache/@types-emscripten-npm-1.39.10-3b81552c03-6ed97aa115.zip/node_modules/@types/emscripten/",\
@@ -9867,12 +9885,14 @@ const RAW_RUNTIME_STATE =
           ["@babel/plugin-transform-typescript", "virtual:92512464fbf4815f6bc9a2cf49746f15e459e97d13bcfb3c37cdf61d2578992421f19c55b3c6f24ec7d8c722225134212ea766641f1c038d30be1faad0eb344d#npm:7.23.3"],\
           ["@babel/preset-env", "virtual:92512464fbf4815f6bc9a2cf49746f15e459e97d13bcfb3c37cdf61d2578992421f19c55b3c6f24ec7d8c722225134212ea766641f1c038d30be1faad0eb344d#npm:7.23.6"],\
           ["@babel/preset-typescript", "virtual:92512464fbf4815f6bc9a2cf49746f15e459e97d13bcfb3c37cdf61d2578992421f19c55b3c6f24ec7d8c722225134212ea766641f1c038d30be1faad0eb344d#npm:7.23.3"],\
+          ["@types/cors", "npm:2.8.17"],\
           ["@types/express", "npm:4.17.21"],\
           ["@types/node", "npm:20.8.10"],\
           ["@typescript-eslint/eslint-plugin", "virtual:92512464fbf4815f6bc9a2cf49746f15e459e97d13bcfb3c37cdf61d2578992421f19c55b3c6f24ec7d8c722225134212ea766641f1c038d30be1faad0eb344d#npm:6.14.0"],\
           ["@typescript-eslint/parser", "virtual:92512464fbf4815f6bc9a2cf49746f15e459e97d13bcfb3c37cdf61d2578992421f19c55b3c6f24ec7d8c722225134212ea766641f1c038d30be1faad0eb344d#npm:6.14.0"],\
           ["babel-eslint", "virtual:394fe46ccea37a470537b05fead138c1003a2fd67acc4da4ee61d303b0c8f3720d6b97ddc753f287946747d143d3432ac85a1df0bc7e95bdb67100a63bc11007#npm:10.1.0"],\
           ["body-parser", "npm:1.20.2"],\
+          ["cors", "npm:2.8.5"],\
           ["esbuild", "npm:0.12.18"],\
           ["esbuild-register", "npm:2.6.0"],\
           ["eslint", "npm:8.52.0"],\
@@ -12341,6 +12361,17 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/core-util-is-npm-1.0.3-ca74b76c90-9de8597363.zip/node_modules/core-util-is/",\
         "packageDependencies": [\
           ["core-util-is", "npm:1.0.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["cors", [\
+      ["npm:2.8.5", {\
+        "packageLocation": "./.yarn/cache/cors-npm-2.8.5-c9935a2d12-66e88e08ed.zip/node_modules/cors/",\
+        "packageDependencies": [\
+          ["cors", "npm:2.8.5"],\
+          ["object-assign", "npm:4.1.1"],\
+          ["vary", "npm:1.1.2"]\
         ],\
         "linkType": "HARD"\
       }]\
