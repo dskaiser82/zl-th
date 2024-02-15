@@ -17,16 +17,6 @@ const recipeCleaner = (recipe): { id: string; name: string } => {
   return { id, name }
 }
 
-const fetchAllRecipes = async () => {
-  try {
-    const recipes = await RecipeModel.find({})
-    console.log("zoe100", recipes)
-    return recipes
-  } catch (error) {
-    console.error("Error fetching recipes:", error)
-  }
-}
-
 export const searchMiddleware = async (
   req: Request,
   res: Response
@@ -43,6 +33,6 @@ export const searchMiddleware = async (
   const foundRecipes = await RecipeModel.find(query)
   const builtRecipes = foundRecipes.map(recipeCleaner)
 
-  // res.send(builtRecipes)
-  res.send(await fetchAllRecipes())
+  res.send(builtRecipes)
+  // res.send(await fetchAllRecipes())
 }

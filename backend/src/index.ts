@@ -4,6 +4,7 @@ import http from "http"
 import cors from "cors"
 import { createAndConnectToServer } from "./db"
 import { searchMiddleware, recipeMiddleware } from "./routes"
+import { allRecipeMiddleware } from "./routes/getAllRecipes"
 
 const appStartup = async (): Promise<void> => {
   await createAndConnectToServer()
@@ -15,6 +16,7 @@ const appStartup = async (): Promise<void> => {
   app.use(bodyParser.urlencoded({ extended: false }))
 
   app.post("/api/search", searchMiddleware)
+  app.get("/api/all-recipes", allRecipeMiddleware)
 
   app.get("/api/recipe/:id", recipeMiddleware)
 

@@ -41,15 +41,11 @@ const Home = () => {
   }
 
   useEffect(() => {
-    fetch("http://localhost:4000/api/search", {
-      method: "POST",
+    fetch("http://localhost:4000/api/all-recipes", {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: "milk",
-        ingredients: ["milk", "flour"],
-      }),
     })
       .then((response) => response.json())
       .then((data) => console.log(data))
