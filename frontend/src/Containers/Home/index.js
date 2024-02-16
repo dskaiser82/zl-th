@@ -24,6 +24,19 @@ const Home = () => {
     // TODO: Implement the fetching logic here
     // You might want to dispatch an action to fetch recipes
     // e.g., dispatch(actions.searchRecipes(term, ingredients));
+
+    fetch("http://localhost:4000/api/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ingredients: ["milk"],
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error("Error:", error))
   }
 
   const handleSearch = (event) => {

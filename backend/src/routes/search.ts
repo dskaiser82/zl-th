@@ -21,18 +21,22 @@ export const searchMiddleware = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { name, ingredients } = req.body
-  const query: Query = {}
-  if (name) {
-    query.name = new RegExp(escapeRegex(name), "gi")
-  }
-  if (ingredients) {
-    const whatsLeft = allIngredients.filter((ing) => !ingredients.includes(ing))
-    query["ingredients.name"] = { $nin: whatsLeft }
-  }
-  const foundRecipes = await RecipeModel.find(query)
-  const builtRecipes = foundRecipes.map(recipeCleaner)
+  const { ingredients } = req.body
 
-  res.send(builtRecipes)
-  // res.send(await fetchAllRecipes())
+  const foundRecipes = await RecipeModel.find({
+    "ingredients.name": { $in: ingredients },
+  })
+
+  // const query: Query = {}
+  // if (name) {
+  //   query.name = new RegExp(escapeRegex(name), "gi")
+  // }
+  // if (ingredients) {
+  //   const whatsLeft = allIngredients.filter((ing) => !ingredients.includes(ing))
+  //   query["ingredients.name"] = { $nin: whatsLeft }
+  // }
+  // const foundRecipes = await RecipeModel.find(query)
+  // const builtRecipes = foundRecipes.map(recipeCleaner)
+
+  res.send(foundRecipes)
 }
