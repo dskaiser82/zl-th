@@ -31,7 +31,7 @@ const Home = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        ingredients: ["milk"],
+        ingredients: ["sugar", "milk", "butter", "flour"],
       }),
     })
       .then((response) => response.json())

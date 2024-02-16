@@ -24,7 +24,7 @@ export const searchMiddleware = async (
   const { ingredients } = req.body
 
   const foundRecipes = await RecipeModel.find({
-    "ingredients.name": { $in: ingredients },
+    "ingredients.name": { $all: ingredients },
   })
 
   // const query: Query = {}
