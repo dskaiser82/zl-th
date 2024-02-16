@@ -48,6 +48,7 @@ module.exports = {
         changeOrigin: true,
       },
     },
+    historyApiFallback: true,
     static: {
       directory: staticDir,
       publicPath: "/",
