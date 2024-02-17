@@ -11,3 +11,12 @@ export type Recipe = {
   instructions: string
   ingredients: Ingredient[]
 }
+
+export const ingredientList = [
+  "flour",
+  "sugar",
+  "salt",
+  "butter",
+  "milk",
+] as const
+export type IngredientListType = typeof ingredientList[number]
