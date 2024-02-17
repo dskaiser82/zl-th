@@ -16,7 +16,7 @@ const failedSearch = (payload) => ({
   payload,
 })
 
-export const executeSearch = async (name, ingredients) => {
+export const executeSearch = async (ingredients) => {
   return fetch("http://localhost:4000/api/search", {
     method: "POST",
     headers: {
@@ -28,10 +28,10 @@ export const executeSearch = async (name, ingredients) => {
   }).then((response) => response.json())
 }
 
-export const searchRecipes = (name, ingredients) => {
+export const searchRecipes = (ingredients) => {
   return (dispatch) => {
     dispatch(fetchingSearch())
-    return executeSearch(name, ingredients)
+    return executeSearch(ingredients)
       .then((res) => dispatch(fetchedSearch(res)))
       .catch((err) => dispatch(failedSearch(err)))
   }
