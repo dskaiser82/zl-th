@@ -1,42 +1,34 @@
-import { RecipeModel, Ingredient } from "../models"
 import { Request, Response } from "express"
-
-const allIngredients = ["flour", "sugar", "salt", "butter", "milk"]
-
-const escapeRegex = (text): string => {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")
-}
-
-interface Query {
-  name?: RegExp
-  ingredients?: Ingredient[]
-}
-
-const recipeCleaner = (recipe): { id: string; name: string } => {
-  const { id, name } = recipe
-  return { id, name }
-}
+import { Ingredient } from "../models"
+import { RecipeModel } from "../models/recipe" // Adjust the import path as necessary
 
 export const searchMiddleware = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { ingredients } = req.body
+  const { name, ingredients } = req.body
 
-  const foundRecipes = await RecipeModel.find({
-    "ingredients.name": { $all: ingredients },
-  })
+  let query: any = {}
 
-  // const query: Query = {}
-  // if (name) {
-  //   query.name = new RegExp(escapeRegex(name), "gi")
-  // }
-  // if (ingredients) {
-  //   const whatsLeft = allIngredients.filter((ing) => !ingredients.includes(ing))
-  //   query["ingredients.name"] = { $nin: whatsLeft }
-  // }
-  // const foundRecipes = await RecipeModel.find(query)
-  // const builtRecipes = foundRecipes.map(recipeCleaner)
+  if (name) {
+    query.name = new RegExp(escapeRegex(name), "i")
+  }
 
-  res.send(foundRecipes)
+  if (ingredients && Array.isArray(ingredients) && ingredients.length) {
+    query["ingredients.name"] = { $all: ingredients }
+  }
+
+  // Execute the query
+  try {
+    const foundRecipes = await RecipeModel.find(query)
+    res.json(foundRecipes)
+  } catch (error) {
+    console.error("Error fetching recipes:", error)
+    res.status(500).send("Error fetching recipes")
+  }
+}
+
+// Helper function to escape special characters in regex patterns
+function escapeRegex(text: string): string {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")
 }
