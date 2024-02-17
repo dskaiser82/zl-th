@@ -13,13 +13,15 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 
 import * as actions from "../../actions"
+import { AnyAction } from "redux"
+import { AppState } from "../../reducers"
 
 const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
 
 const Home = () => {
   const [term, setTerm] = useState("")
   const [ingredients, setIngredients] = useState(["milk"])
-  const dispatch: ThunkDispatch<any, any, any> = useDispatch()
+  const dispatch: ThunkDispatch<AppState, null, AnyAction> = useDispatch()
   const { recipes, isLoading } = useSelector((state) => state.search)
 
   const fetchSearch = () => {
