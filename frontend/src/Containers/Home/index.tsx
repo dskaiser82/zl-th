@@ -15,6 +15,7 @@ import ListItemText from "@material-ui/core/ListItemText"
 import * as actions from "../../actions"
 import { AnyAction } from "redux"
 import { AppState } from "../../reducers"
+import { Ingredient, Recipe } from "../../types"
 
 const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
 
@@ -22,7 +23,7 @@ const Home = () => {
   const [term, setTerm] = useState("")
   const [ingredients, setIngredients] = useState(["milk"])
   const dispatch: ThunkDispatch<AppState, null, AnyAction> = useDispatch()
-  const { recipes, isLoading } = useSelector((state) => state.search)
+  const { recipes, isLoading } = useSelector((state: AppState) => state.search)
 
   const fetchSearch = () => {
     dispatch(actions.searchRecipes(term, ingredients))
@@ -71,14 +72,14 @@ const Home = () => {
       <Divider />
       {recipes && (
         <List>
-          {recipes.map((recipe) => (
+          {recipes.map((recipe: Recipe) => (
             <div key={recipe._id}>
               <ListItem>
                 <ListItemText primary={recipe.name} />
 
                 <p>
-                  {recipe.ingredients?.map((ing) => {
-                    return <span>{ing.name} </span>
+                  {recipe.ingredients?.map((ing: Ingredient) => {
+                    return <span key={ing._id}>{ing.name} </span>
                   })}
                 </p>
               </ListItem>
