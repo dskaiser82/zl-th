@@ -15,9 +15,12 @@ import ListItemText from "@material-ui/core/ListItemText"
 import * as actions from "../../actions"
 import { AnyAction } from "redux"
 import { AppState } from "../../reducers"
-import { Ingredient, Recipe } from "../../types"
-
-const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
+import {
+  Ingredient,
+  ingredientList,
+  IngredientListType,
+  Recipe,
+} from "../../types"
 
 const Home = () => {
   const [term, setTerm] = useState("")
@@ -54,7 +57,7 @@ const Home = () => {
       />
       <div>
         <h3>Ingredients on hand</h3>
-        {ingredientList.map((ingredient) => (
+        {ingredientList.map((ingredient: IngredientListType) => (
           <FormControlLabel
             key={ingredient}
             control={

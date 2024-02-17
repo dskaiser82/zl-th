@@ -15,7 +15,7 @@ export const searchMiddleware = async (
   }
 
   if (ingredients && Array.isArray(ingredients) && ingredients.length) {
-    query["ingredients.name"] = { $all: ingredients }
+    query["ingredients.name"] = { $in: ingredients }
   }
 
   // Execute the query
