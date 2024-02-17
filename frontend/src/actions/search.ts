@@ -1,3 +1,5 @@
+import { IngredientListType } from "../types"
+
 export const GET_SEARCH = "GET_SEARCH"
 export const RECEIVE_SEARCH = "RECEIVE_SEARCH"
 export const FAIL_SEARCH = "FAIL_SEARCH"
@@ -16,7 +18,10 @@ const failedSearch = (payload) => ({
   payload,
 })
 
-export const executeSearch = async (name: string, ingredients) => {
+export const executeSearch = async (
+  name: string,
+  ingredients: IngredientListType[]
+) => {
   return fetch("http://localhost:4000/api/search", {
     method: "POST",
     headers: {
