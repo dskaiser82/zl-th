@@ -17,23 +17,22 @@ const failedSearch = (payload) => ({
 })
 
 export const executeSearch = async (name, ingredients) => {
-  const response = await fetch("/api/search", {
+  return fetch("http://localhost:4000/api/search", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, ingredients }),
-  })
-  const searchResults = await response.json()
-  return searchResults
+    body: JSON.stringify({
+      ingredients: ["sugar", "milk", "butter", "flour"],
+    }),
+  }).then((response) => response.json())
 }
 
-// TODO: fix action
 export const searchRecipes = (name, ingredients) => {
   return (dispatch) => {
     dispatch(fetchingSearch())
     return executeSearch(name, ingredients)
-      .then((res) => fetchedSearch(res))
+      .then((res) => dispatch(fetchedSearch(res)))
       .catch((err) => dispatch(failedSearch(err)))
   }
 }

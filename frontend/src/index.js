@@ -8,7 +8,11 @@ import Home from "./Containers/Home"
 import Recipe from "./Containers/Recipe"
 import reducers from "./reducers"
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(
+  reducers,
+  composeEnhancers(applyMiddleware(thunkMiddleware))
+)
 
 const router = createBrowserRouter([
   {

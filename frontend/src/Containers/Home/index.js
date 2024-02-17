@@ -10,6 +10,7 @@ import LinearProgress from "@material-ui/core/LinearProgress"
 import List from "@material-ui/core/List"
 import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
+
 import * as actions from "../../actions"
 
 const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
@@ -24,19 +25,7 @@ const Home = () => {
     // TODO: Implement the fetching logic here
     // You might want to dispatch an action to fetch recipes
     // e.g., dispatch(actions.searchRecipes(term, ingredients));
-
-    fetch("http://localhost:4000/api/search", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ingredients: ["sugar", "milk", "butter", "flour"],
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error("Error:", error))
+    dispatch(actions.searchRecipes(term, ingredients))
   }
 
   const handleSearch = (event) => {
@@ -94,9 +83,11 @@ const Home = () => {
       {recipes && (
         <List>
           {recipes.map((recipe) => (
-            <ListItem key={recipe.id}>
-              <ListItemText primary={recipe.name} />
-            </ListItem>
+            <div key={recipe._id}>
+              <ListItem>
+                <ListItemText primary={recipe.name} />
+              </ListItem>
+            </div>
           ))}
         </List>
       )}
