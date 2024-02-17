@@ -22,9 +22,6 @@ const Home = () => {
   const { recipes, isLoading } = useSelector((state) => state.search)
 
   const fetchSearch = () => {
-    // TODO: Implement the fetching logic here
-    // You might want to dispatch an action to fetch recipes
-    // e.g., dispatch(actions.searchRecipes(term, ingredients));
     dispatch(actions.searchRecipes(term, ingredients))
   }
 
