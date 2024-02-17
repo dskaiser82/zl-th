@@ -23,7 +23,7 @@ export const executeSearch = async (name, ingredients) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      ingredients: ["sugar", "milk", "butter", "flour"],
+      ingredients,
     }),
   }).then((response) => response.json())
 }

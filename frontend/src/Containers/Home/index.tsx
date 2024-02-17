@@ -42,18 +42,6 @@ const Home = () => {
     }
   }
 
-  useEffect(() => {
-    fetch("http://localhost:4000/api/all-recipes", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error("Error:", error))
-  }, [])
-
   return (
     <HomeWrapper>
       <Input
@@ -87,6 +75,12 @@ const Home = () => {
             <div key={recipe._id}>
               <ListItem>
                 <ListItemText primary={recipe.name} />
+
+                <p>
+                  {recipe.ingredients?.map((ing) => {
+                    return <span>{ing.name} </span>
+                  })}
+                </p>
               </ListItem>
             </div>
           ))}
