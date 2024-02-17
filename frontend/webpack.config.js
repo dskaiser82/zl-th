@@ -30,14 +30,20 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        include: [srcDir],
-        loader: "esbuild-loader",
-        options: {
-          loader: "tsx", // 'tsx' for TypeScript with JSX
-          target: "es2018",
+        test: /\.(js|jsx|ts|tsx)$/, // Matches JavaScript and TypeScript files, including JSX
+        exclude: /node_modules/, // Avoid transpiling node_modules
+        use: {
+          loader: "babel-loader", // Specifies babel-loader for transpiling
+          options: {
+            presets: [
+              "@babel/preset-env", // Transpiles modern JavaScript to support older browsers
+              "@babel/preset-react", // Adds support for JSX
+              "@babel/preset-typescript", // Adds support for TypeScript
+            ],
+          },
         },
       },
+      // Include other loaders here as needed
     ],
   },
   devServer: {
