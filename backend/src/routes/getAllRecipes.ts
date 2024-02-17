@@ -4,7 +4,6 @@ import { RecipeModel } from "../models"
 const fetchAllRecipes = async () => {
   try {
     const recipes = await RecipeModel.find({})
-    console.log("zoe100", recipes)
     return recipes
   } catch (error) {
     console.error("Error fetching recipes:", error)

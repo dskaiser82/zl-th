@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, ChangeEvent } from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { ThunkDispatch } from "redux-thunk"
 import { HomeWrapper } from "./styles"
 import Input from "@material-ui/core/Input"
 import Checkbox from "@material-ui/core/Checkbox"
@@ -12,20 +13,22 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemText from "@material-ui/core/ListItemText"
 
 import * as actions from "../../actions"
+import { AnyAction } from "redux"
+import { AppState } from "../../reducers"
 
 const ingredientList = ["flour", "sugar", "salt", "butter", "milk"]
 
 const Home = () => {
   const [term, setTerm] = useState("")
   const [ingredients, setIngredients] = useState(["milk"])
-  const dispatch = useDispatch()
+  const dispatch: ThunkDispatch<AppState, null, AnyAction> = useDispatch()
   const { recipes, isLoading } = useSelector((state) => state.search)
 
   const fetchSearch = () => {
     dispatch(actions.searchRecipes(term, ingredients))
   }
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setTerm(event.target.value)
   }
 
@@ -56,6 +59,7 @@ const Home = () => {
       <Input
         autoFocus={true}
         fullWidth={true}
+        placeholder="Search by recipe name"
         onChange={handleSearch}
         value={term}
       />
