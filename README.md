@@ -1,5 +1,16 @@
 # What Can You Make
 
+-- Added Typescript to front-end
+-- Updated packages and compllers as needed to support typescript
+-- Upodated store to use newer configureStore where thunk middleware is included by default
+-- Added React Router for front-end, and included historyApiFallback to webpack config for react routes to not conflict with node routes (if node doesn't find a route fallback to index.html where react router will handle the route)
+
+TODO Next
+Recipe Card
+Whgich links oiut to /recipe/detai;
+
+> > New Back-end needed
+
 ## Installation
 
 Run:

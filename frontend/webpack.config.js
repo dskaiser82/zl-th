@@ -30,10 +30,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/, // Matches JavaScript and TypeScript files, including JSX
-        exclude: /node_modules/, // Avoid transpiling node_modules
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
         use: {
-          loader: "babel-loader", // Specifies babel-loader for transpiling
+          loader: "babel-loader",
           options: {
             presets: [
               "@babel/preset-env", // Transpiles modern JavaScript to support older browsers
