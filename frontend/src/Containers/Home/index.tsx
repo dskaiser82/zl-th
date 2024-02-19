@@ -4,6 +4,7 @@ import { ThunkDispatch } from "redux-thunk"
 import { HomeWrapper } from "./styles"
 import Input from "@material-ui/core/Input"
 import Checkbox from "@material-ui/core/Checkbox"
+import Card from "@material-ui/core/Card"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Divider from "@material-ui/core/Divider"
 import Button from "@material-ui/core/Button"
@@ -57,6 +58,7 @@ const Home = () => {
       />
       <div>
         <h3>Ingredients on hand</h3>
+
         {ingredientList.map((ingredient: IngredientListType) => (
           <FormControlLabel
             key={ingredient}
@@ -77,15 +79,14 @@ const Home = () => {
         <List>
           {recipes.map((recipe: Recipe) => (
             <div key={recipe._id}>
-              <ListItem>
-                <ListItemText primary={recipe.name} />
-
+              <Card style={{ width: "300px", padding: "12px" }}>
+                <h3>{recipe.name}</h3>
                 <p>
                   {recipe.ingredients?.map((ing: Ingredient) => {
                     return <span key={ing._id}>{ing.name} </span>
                   })}
                 </p>
-              </ListItem>
+              </Card>
             </div>
           ))}
         </List>
