@@ -26,6 +26,7 @@ module.exports = {
   output: {
     path: buildDir,
     filename: "[name].bundle.js",
+    publicPath: "/", // Ensure assets are loaded from the root
   },
   module: {
     rules: [
