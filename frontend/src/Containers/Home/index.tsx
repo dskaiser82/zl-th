@@ -1,7 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ThunkDispatch } from "redux-thunk"
-import { HomeWrapper } from "./styles"
+import { CardLink, FlexContainer, HomeWrapper } from "./styles"
 import Input from "@material-ui/core/Input"
 import Checkbox from "@material-ui/core/Checkbox"
 import Card from "@material-ui/core/Card"
@@ -77,9 +77,9 @@ const Home = () => {
       <Button onClick={fetchSearch}>search</Button>
       <Divider />
       {recipes && (
-        <List>
+        <FlexContainer>
           {recipes.map((recipe: Recipe) => (
-            <div key={recipe._id}>
+            <CardLink href={`/recipe/${recipe._id}`} key={recipe._id}>
               <Card style={{ width: "300px", padding: "12px", margin: "12px" }}>
                 <h3>{recipe.name}</h3>
                 <p>
@@ -88,9 +88,9 @@ const Home = () => {
                   })}
                 </p>
               </Card>
-            </div>
+            </CardLink>
           ))}
-        </List>
+        </FlexContainer>
       )}
       {isLoading && <LinearProgress />}
       <Divider />
