@@ -82,11 +82,11 @@ const Home = () => {
             <CardLink href={`/recipe/${recipe._id}`} key={recipe._id}>
               <Card style={{ width: "300px", padding: "12px", margin: "12px" }}>
                 <h3>{recipe.name}</h3>
-                <p>
+                <ul>
                   {recipe.ingredients?.map((ing: Ingredient) => {
-                    return <span key={ing._id}>{ing.name} </span>
+                    return <li key={ing._id}>{ing.name} </li>
                   })}
-                </p>
+                </ul>
               </Card>
             </CardLink>
           ))}

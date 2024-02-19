@@ -99,7 +99,13 @@ export const builtRecipes = recipeNames.map((name, index) => {
   let numIngredients = Math.ceil(Math.random() * 10)
   const ingredients = []
   do {
-    ingredients.push(createIngredient())
+    const newIngredient = createIngredient()
+    const isDuplicate = ingredients.some(
+      (ingredient) => ingredient.name === newIngredient.name
+    )
+    if (!isDuplicate) {
+      ingredients.push(newIngredient)
+    }
     numIngredients--
   } while (numIngredients > 0)
 
