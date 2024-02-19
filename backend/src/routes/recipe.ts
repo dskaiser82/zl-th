@@ -1,13 +1,16 @@
 import { RecipeModel } from "../models"
+import { Request, Response } from "express"
 
 export const recipeMiddleware = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const recipeId = "000000000000000000000001"
+  const { id } = req.params
+
+  console.log(req.params)
 
   try {
-    const recipes = await RecipeModel.findOne({ _id: recipeId })
+    const recipes = await RecipeModel.findOne({ _id: id })
     console.log("Recipes found:", recipes)
     res.json(recipes) // Send the found recipes as the response
   } catch (error) {
