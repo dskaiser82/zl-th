@@ -95,14 +95,17 @@ const recipeIpsum = new LoremIpsum({
   words: recipeNames,
 })
 
-export const builtRecipes = recipeNames.map((name) => {
+export const builtRecipes = recipeNames.map((name, index) => {
   let numIngredients = Math.ceil(Math.random() * 10)
   const ingredients = []
   do {
     ingredients.push(createIngredient())
     numIngredients--
   } while (numIngredients > 0)
+
+  const pseudoId = (index + 1).toString().padStart(24, "0")
   return {
+    _id: pseudoId,
     name: `${name} ${recipeIpsum.generateWords(
       Math.ceil(Math.random() * 4) + 2
     )}`,

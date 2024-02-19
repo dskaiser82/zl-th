@@ -1,36 +1,17 @@
-import { Request, Response } from "express"
-import { Ingredient } from "../models"
-import { RecipeModel } from "../models/recipe" // Adjust the import path as necessary
+import { RecipeModel } from "../models"
 
 export const recipeMiddleware = async (
   req: Request,
   res: Response
 ): Promise<void> => {
-  const { ingredients } = req.body
+  const recipeId = "000000000000000000000001"
 
-  let query: any = {}
-
-  let name = "Coconut"
-
-  if (name) {
-    query.name = new RegExp(escapeRegex(name), "i")
-  }
-
-  if (ingredients && Array.isArray(ingredients) && ingredients.length) {
-    query["ingredients.name"] = { $in: ingredients }
-  }
-
-  // Execute the query
   try {
-    const foundRecipes = await RecipeModel.findOne(query)
-    res.json(foundRecipes)
+    const recipes = await RecipeModel.findOne({ _id: recipeId })
+    console.log("Recipes found:", recipes)
+    res.json(recipes) // Send the found recipes as the response
   } catch (error) {
     console.error("Error fetching recipes:", error)
     res.status(500).send("Error fetching recipes")
   }
-}
-
-// Helper function to escape special characters in regex patterns
-function escapeRegex(text: string): string {
-  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&")
 }
