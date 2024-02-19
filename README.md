@@ -1,16 +1,38 @@
 # What Can You Make
 
--- Added Typescript to front-end
--- Updated packages and compllers as needed to support typescript
--- Upodated store to use newer configureStore where thunk middleware is included by default
--- Added React Router for front-end, and included historyApiFallback to webpack config for react routes to not conflict with node routes (if node doesn't find a route fallback to index.html where react router will handle the route)
--- On DB Seeding add logic to remove dupe ingredients
+## Enhancements and Features
 
-TODO Next
-Recipe Card
-Whgich links oiut to /recipe/detai;
+## Enhancements
 
-> > New Back-end needed
+- **TypeScript Integration**: Transitioned the front-end codebase to TypeScript to leverage strong typing and improve code maintainability.
+
+- **Dependency Updates**: Upgraded various packages and compilers to ensure compatibility with TypeScript and to streamline development workflows.
+
+- **Store Configuration**: Adopted `configureStore` from Redux Toolkit for our state management needs, which includes Thunk middleware out-of-the-box.
+
+- **Routing**: Integrated React Router for enhanced front-end navigation. Also included `historyApiFallback` in the webpack configuration to handle potential routing conflicts between Node.js and React Router.
+
+- **Database Seeding**: Improved the database seeding process to remove duplicate ingredients, maintaining data integrity and uniformity.
+
+## Features
+
+- **Home Page**: Fixed search functionality, enabling users to search for recipes by name or ingredients. Added Card component to see recipes.
+
+- **Recipe Details**: Implemented the ability to retrieve recipes by a unique ID, providing detailed views for each recipe.
+
+## Caveats
+
+- **TypeScript Adoption**: Some parts of the codebase may still need further typing and refinement.
+
+- **CSS**: We used styled-components, but also had inline css for this demo. In Prod codebase, we would likely keep inline styles to a min.
+
+
+  ![zl-th-demo](https://github.com/dskaiser82/zl-th/assets/1254851/559d1968-3b9d-4db3-810c-58bd2cfbb2e0)
+
+
+
+
+
 
 ## Installation
 
