@@ -24,7 +24,7 @@
 
 - **TypeScript Adoption**: Some parts of the codebase may still need further typing and refinement.
 
-- **CSS**: We used styled-components, but also had inline css for this demo. In Prod codebase, we would likely keep inline styles to a min.
+- **CSS**: We used styled-components, but also had inline css for this demo. In a Prod codebase, we would likely keep inline styles to a min.
 
 ## Screen Capture
 
