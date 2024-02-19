@@ -1,19 +1,27 @@
-import { IngredientListType } from "../types"
+import { IngredientListType, Recipe } from "../types"
+import { Dispatch } from "redux"
 
 export const GET_SEARCH = "GET_SEARCH"
 export const RECEIVE_SEARCH = "RECEIVE_SEARCH"
 export const FAIL_SEARCH = "FAIL_SEARCH"
 
+interface ActionType {
+  type: string
+  payload?: any
+}
+
+type AppDispatch = Dispatch<ActionType>
+
 const fetchingSearch = () => ({
   type: GET_SEARCH,
 })
 
-const fetchedSearch = (payload) => ({
+const fetchedSearch = (payload: Recipe[]) => ({
   type: RECEIVE_SEARCH,
   payload,
 })
 
-const failedSearch = (payload) => ({
+const failedSearch = (payload: Error) => ({
   type: FAIL_SEARCH,
   payload,
 })
@@ -34,8 +42,11 @@ export const executeSearch = async (
   }).then((response) => response.json())
 }
 
-export const searchRecipes = (name, ingredients) => {
-  return (dispatch) => {
+export const searchRecipes = (
+  name: string,
+  ingredients: IngredientListType[]
+) => {
+  return (dispatch: AppDispatch) => {
     dispatch(fetchingSearch())
     return executeSearch(name, ingredients)
       .then((res) => dispatch(fetchedSearch(res)))

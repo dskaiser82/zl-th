@@ -23,7 +23,7 @@ import {
 
 const Home = () => {
   const [term, setTerm] = useState("")
-  const [ingredients, setIngredients] = useState(["milk"])
+  const [ingredients, setIngredients] = useState<IngredientListType[]>(["milk"])
   const dispatch: ThunkDispatch<AppState, null, AnyAction> = useDispatch()
   const { recipes, isLoading } = useSelector((state: AppState) => state.search)
 
