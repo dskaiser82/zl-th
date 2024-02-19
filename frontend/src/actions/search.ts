@@ -1,4 +1,5 @@
 import { IngredientListType, Recipe } from "../types"
+import { AppDispatch } from "./types"
 
 export const GET_SEARCH = "GET_SEARCH"
 export const RECEIVE_SEARCH = "RECEIVE_SEARCH"
@@ -31,7 +32,9 @@ export const executeSearch = async (
       name,
       ingredients,
     }),
-  }).then((response) => response.json())
+  })
+    .then((response) => response.json())
+    .catch((err) => err)
 }
 
 export const searchRecipes = (

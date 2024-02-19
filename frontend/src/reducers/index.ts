@@ -1,8 +1,8 @@
 import { combineReducers } from "redux"
 import search from "./search"
-// import recipe from './recipe'
+import recipe from "./recipe"
 
-const rootReducer = combineReducers({ search })
+const rootReducer = combineReducers({ search, recipe })
 export default rootReducer
 
 export type AppState = ReturnType<typeof rootReducer>
