@@ -1,20 +1,27 @@
 import { GET_RECIPE, RECEIVE_RECIPE, FAIL_RECIPE } from "../actions"
+import { Recipe } from "../types"
 
-const initialState = {
+type InitialState = {
+  recipeDetails: null | Recipe
+  isLoading: boolean
+  error: null | Error
+}
+
+const initialState: InitialState = {
   recipeDetails: null,
   isLoading: false,
   error: null,
 }
 
-const recipeFetching = (state) => {
+const recipeFetching = (state: InitialState) => {
   return { ...state, isLoading: true }
 }
 
-const recipeFetched = (state, payload) => {
+const recipeFetched = (state: InitialState, payload: Recipe) => {
   return { ...state, isLoading: false, recipeDetails: payload }
 }
 
-const recipeFailed = (state, payload) => {
+const recipeFailed = (state: InitialState, payload: Error) => {
   return { ...state, isLoading: false, error: payload }
 }
 

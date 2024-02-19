@@ -31,15 +31,19 @@ export const getRecipeDetails = async (id: string) => {
     }
     return await response.json()
   } catch (err) {
-    throw err // Rethrow to ensure the promise is rejected
+    throw err
   }
 }
 export const dispatchGetRecipe = (id?: string) => {
   return async (dispatch: AppDispatch) => {
     dispatch(fetchingRecipe())
     try {
-      const res = await getRecipeDetails(id)
-      dispatch(fetchedRecipe(res))
+      if (id) {
+        const res = await getRecipeDetails(id)
+        dispatch(fetchedRecipe(res))
+      } else {
+        failedRecipe(new Error("No ID found"))
+      }
     } catch (err) {
       dispatch(
         failedRecipe(
