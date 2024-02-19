@@ -935,6 +935,10 @@ const RAW_RUNTIME_STATE =
       "npm:0.3.36"\
     ],\
     [\
+      "@types/styled-components",\
+      "npm:5.1.34"\
+    ],\
+    [\
       "@types/treeify",\
       "npm:1.0.0"\
     ],\
@@ -11183,6 +11187,18 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@types/styled-components", [\
+      ["npm:5.1.34", {\
+        "packageLocation": "./.yarn/cache/@types-styled-components-npm-5.1.34-c1fd4bac77-3da291b46f.zip/node_modules/@types/styled-components/",\
+        "packageDependencies": [\
+          ["@types/styled-components", "npm:5.1.34"],\
+          ["@types/hoist-non-react-statics", "npm:3.3.5"],\
+          ["@types/react", "npm:17.0.20"],\
+          ["csstype", "npm:3.0.9"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@types/treeify", [\
       ["npm:1.0.0", {\
         "packageLocation": "./.yarn/cache/@types-treeify-npm-1.0.0-b5e04e9cd3-7d313ba9de.zip/node_modules/@types/treeify/",\
@@ -11507,6 +11523,7 @@ const RAW_RUNTIME_STATE =
           ["@reduxjs/toolkit", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:2.2.1"],\
           ["@types/react", "npm:18.2.56"],\
           ["@types/react-dom", "npm:18.2.19"],\
+          ["@types/styled-components", "npm:5.1.34"],\
           ["babel-loader", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:9.1.3"],\
           ["esbuild", "npm:0.12.18"],\
           ["esbuild-loader", "virtual:74608ea472d200eb7aafac67a4b3d3d2cf07a6c6c620ff30471520eefd5edeb503c9ed6dc628bbcdf22fc5d8912bba69388be38679bf24ebc891cebaa92bdb72#npm:4.0.3"],\

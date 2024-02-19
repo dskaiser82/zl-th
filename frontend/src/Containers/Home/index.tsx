@@ -10,8 +10,6 @@ import Divider from "@material-ui/core/Divider"
 import Button from "@material-ui/core/Button"
 import LinearProgress from "@material-ui/core/LinearProgress"
 import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemText from "@material-ui/core/ListItemText"
 
 import * as actions from "../../actions"
 import { AnyAction } from "redux"
@@ -37,7 +35,10 @@ const Home = () => {
     setTerm(event.target.value)
   }
 
-  const handleIngredient = (ingredient, event) => {
+  const handleIngredient = (
+    ingredient: IngredientListType,
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     if (event.target.checked) {
       setIngredients((prevIngredients) => [...prevIngredients, ingredient])
     } else {
@@ -79,7 +80,7 @@ const Home = () => {
         <List>
           {recipes.map((recipe: Recipe) => (
             <div key={recipe._id}>
-              <Card style={{ width: "300px", padding: "12px" }}>
+              <Card style={{ width: "300px", padding: "12px", margin: "12px" }}>
                 <h3>{recipe.name}</h3>
                 <p>
                   {recipe.ingredients?.map((ing: Ingredient) => {
@@ -93,7 +94,6 @@ const Home = () => {
       )}
       {isLoading && <LinearProgress />}
       <Divider />
-      {/* TODO: Add a recipe component here. */}
     </HomeWrapper>
   )
 }
