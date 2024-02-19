@@ -1,16 +1,8 @@
 import { IngredientListType, Recipe } from "../types"
-import { Dispatch } from "redux"
 
 export const GET_SEARCH = "GET_SEARCH"
 export const RECEIVE_SEARCH = "RECEIVE_SEARCH"
 export const FAIL_SEARCH = "FAIL_SEARCH"
-
-interface ActionType {
-  type: string
-  payload?: any
-}
-
-type AppDispatch = Dispatch<ActionType>
 
 const fetchingSearch = () => ({
   type: GET_SEARCH,

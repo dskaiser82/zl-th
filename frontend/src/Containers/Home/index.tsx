@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from "react"
+import React, { useState, ChangeEvent } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ThunkDispatch } from "redux-thunk"
 import { CardLink, FlexContainer, HomeWrapper } from "./styles"
@@ -9,7 +9,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel"
 import Divider from "@material-ui/core/Divider"
 import Button from "@material-ui/core/Button"
 import LinearProgress from "@material-ui/core/LinearProgress"
-import List from "@material-ui/core/List"
 
 import * as actions from "../../actions"
 import { AnyAction } from "redux"
