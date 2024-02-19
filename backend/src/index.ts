@@ -18,7 +18,7 @@ const appStartup = async (): Promise<void> => {
   // Define API routes
   app.post("/api/search", searchMiddleware)
   app.get("/api/all-recipes", allRecipeMiddleware)
-  app.get("/api/recipe/:id", recipeMiddleware)
+  app.post("/api/recipe/:id", recipeMiddleware)
 
   // Serve static files from the React app's build directory
   app.use(express.static(path.join(__dirname, "build")))
