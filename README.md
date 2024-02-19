@@ -26,6 +26,7 @@
 
 - **CSS**: We used styled-components, but also had inline css for this demo. In Prod codebase, we would likely keep inline styles to a min.
 
+## Screen Capture
 
   ![zl-th-demo](https://github.com/dskaiser82/zl-th/assets/1254851/559d1968-3b9d-4db3-810c-58bd2cfbb2e0)
 
