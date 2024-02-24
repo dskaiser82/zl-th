@@ -25,3 +25,13 @@
   --palette-second-dark: #99682e;
   --palette-third-dark: #6e5899;
 }
+
+.light {
+  --foreground: var(--grayscale-charcoal);
+  --background: var(--grayscale-white);
+}
+
+.dark {
+  --foreground: var(--grayscale-white);
+  --background: var(--grayscale-charcoal);
+}
