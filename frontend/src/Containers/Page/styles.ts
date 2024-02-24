@@ -7,4 +7,6 @@ export const Main = styled.main`
   flex-flow: column;
   margin: auto;
   padding: 8px;
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.foreground};
 `
