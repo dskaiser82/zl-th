@@ -19,6 +19,7 @@ import {
   IngredientListType,
   Recipe,
 } from "../../types"
+import { Page } from "../Page"
 
 const Home = () => {
   const [term, setTerm] = useState("")
@@ -48,52 +49,56 @@ const Home = () => {
   }
 
   return (
-    <HomeWrapper>
-      <Input
-        autoFocus={true}
-        fullWidth={true}
-        placeholder="Search by recipe name"
-        onChange={handleSearch}
-        value={term}
-      />
-      <div>
-        <h3>Ingredients on hand</h3>
+    <Page>
+      <HomeWrapper>
+        <Input
+          autoFocus={true}
+          fullWidth={true}
+          placeholder="Search by recipe name"
+          onChange={handleSearch}
+          value={term}
+        />
+        <div>
+          <h3>Ingredients on hand</h3>
 
-        {ingredientList.map((ingredient: IngredientListType) => (
-          <FormControlLabel
-            key={ingredient}
-            control={
-              <Checkbox
-                checked={ingredients.includes(ingredient)}
-                onChange={(event) => handleIngredient(ingredient, event)}
-                value={ingredient}
-              />
-            }
-            label={ingredient}
-          />
-        ))}
-      </div>
-      <Button onClick={fetchSearch}>search</Button>
-      <Divider />
-      {recipes && (
-        <FlexContainer>
-          {recipes.map((recipe: Recipe) => (
-            <CardLink href={`/recipe/${recipe._id}`} key={recipe._id}>
-              <Card style={{ width: "300px", padding: "12px", margin: "12px" }}>
-                <h3>{recipe.name}</h3>
-                <ul>
-                  {recipe.ingredients?.map((ing: Ingredient) => {
-                    return <li key={ing._id}>{ing.name} </li>
-                  })}
-                </ul>
-              </Card>
-            </CardLink>
+          {ingredientList.map((ingredient: IngredientListType) => (
+            <FormControlLabel
+              key={ingredient}
+              control={
+                <Checkbox
+                  checked={ingredients.includes(ingredient)}
+                  onChange={(event) => handleIngredient(ingredient, event)}
+                  value={ingredient}
+                />
+              }
+              label={ingredient}
+            />
           ))}
-        </FlexContainer>
-      )}
-      {isLoading && <LinearProgress />}
-      <Divider />
-    </HomeWrapper>
+        </div>
+        <Button onClick={fetchSearch}>search</Button>
+        <Divider />
+        {recipes && (
+          <FlexContainer>
+            {recipes.map((recipe: Recipe) => (
+              <CardLink href={`/recipe/${recipe._id}`} key={recipe._id}>
+                <Card
+                  style={{ width: "300px", padding: "12px", margin: "12px" }}
+                >
+                  <h3>{recipe.name}</h3>
+                  <ul>
+                    {recipe.ingredients?.map((ing: Ingredient) => {
+                      return <li key={ing._id}>{ing.name} </li>
+                    })}
+                  </ul>
+                </Card>
+              </CardLink>
+            ))}
+          </FlexContainer>
+        )}
+        {isLoading && <LinearProgress />}
+        <Divider />
+      </HomeWrapper>
+    </Page>
   )
 }
 

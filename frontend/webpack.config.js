@@ -44,7 +44,10 @@ module.exports = {
           },
         },
       },
-      // Include other loaders here as needed
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   devServer: {

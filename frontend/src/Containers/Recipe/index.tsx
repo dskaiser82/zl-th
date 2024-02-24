@@ -8,6 +8,7 @@ import { HomeWrapper } from "../Home/styles"
 import * as actions from "../../actions"
 import { StyledInstructions, StyledFlexHero } from "./styles"
 import { LinearProgress } from "@material-ui/core"
+import { Page } from "../Page"
 
 const Recipe = () => {
   const dispatch: ThunkDispatch<AppState, null, AnyAction> = useDispatch()
@@ -21,40 +22,44 @@ const Recipe = () => {
   }, [])
 
   return (
-    <HomeWrapper>
-      <a
-        href="/"
-        style={{ fontSize: "50px", textDecoration: "none", color: "black" }}
-      >
-        {"\u2190"}
-      </a>
-      {recipeDetails?.name && (
-        <div>
-          <h1> {recipeDetails?.name}</h1>
-          <StyledFlexHero>
-            <img
-              style={{ width: "300px" }}
-              src="https://theme-assets.getbento.com/sensei/74ec6d7.sensei/assets/images/catering-item-placeholder-704x520.png"
-              alt="placeholder recipe food"
-            />
+    <Page>
+      <HomeWrapper>
+        <a
+          href="/"
+          style={{ fontSize: "50px", textDecoration: "none", color: "black" }}
+        >
+          {"\u2190"}
+        </a>
+        {recipeDetails?.name && (
+          <div>
+            <h1> {recipeDetails?.name}</h1>
+            <StyledFlexHero>
+              <img
+                style={{ width: "300px" }}
+                src="https://theme-assets.getbento.com/sensei/74ec6d7.sensei/assets/images/catering-item-placeholder-704x520.png"
+                alt="placeholder recipe food"
+              />
 
-            {recipeDetails?.ingredients.map((ing) => {
-              return (
-                <ul>
-                  <li>
-                    {ing.unit} of {ing.name} / {ing.amount} units
-                  </li>
-                </ul>
-              )
-            })}
-          </StyledFlexHero>
+              {recipeDetails?.ingredients.map((ing) => {
+                return (
+                  <ul>
+                    <li>
+                      {ing.unit} of {ing.name} / {ing.amount} units
+                    </li>
+                  </ul>
+                )
+              })}
+            </StyledFlexHero>
 
-          <StyledInstructions>{recipeDetails.instructions}</StyledInstructions>
-        </div>
-      )}
+            <StyledInstructions>
+              {recipeDetails.instructions}
+            </StyledInstructions>
+          </div>
+        )}
 
-      {isLoading && <LinearProgress />}
-    </HomeWrapper>
+        {isLoading && <LinearProgress />}
+      </HomeWrapper>
+    </Page>
   )
 }
 
