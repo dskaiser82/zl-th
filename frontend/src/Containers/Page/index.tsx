@@ -6,9 +6,5 @@ type PageProps = {
   children: JSX.Element | JSX.Element[]
 }
 export const Page = (props: PageProps) => {
-  return (
-    <div>
-      <Main>{props.children}</Main>
-    </div>
-  )
+  return <Main>{props.children}</Main>
 }
