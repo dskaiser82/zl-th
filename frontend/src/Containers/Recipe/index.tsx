@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { AnyAction } from "redux"
 import { ThunkDispatch } from "redux-thunk"
 import { AppState } from "../../reducers"
-import { HomeWrapper } from "../Home/styles"
 import * as actions from "../../actions"
 import { StyledInstructions, StyledFlexHero } from "./styles"
 import { LinearProgress } from "@material-ui/core"
@@ -23,13 +22,13 @@ const Recipe = () => {
 
   return (
     <Page>
-      <HomeWrapper>
-        <a
-          href="/"
-          style={{ fontSize: "50px", textDecoration: "none", color: "black" }}
-        >
-          {"\u2190"}
-        </a>
+      <a
+        href="/"
+        style={{ fontSize: "50px", textDecoration: "none", color: "black" }}
+      >
+        {"\u2190"}
+      </a>
+      <div>
         {recipeDetails?.name && (
           <div>
             <h1> {recipeDetails?.name}</h1>
@@ -56,9 +55,8 @@ const Recipe = () => {
             </StyledInstructions>
           </div>
         )}
-
         {isLoading && <LinearProgress />}
-      </HomeWrapper>
+      </div>
     </Page>
   )
 }
