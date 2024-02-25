@@ -1,5 +1,5 @@
 :root {
-  -bg-padding-md: 148px;
+  --bg-padding-md: 148px;
   --border-radius-lg: 1rem;
   --border-radius-md: 0.5rem;
   --border-radius-sm: 0.25rem;
@@ -62,6 +62,11 @@ body {
   font-weight: 700;
   letter-spacing: 0.045em;
   line-height: 4.25rem;
+  background-color: var(--background);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 h3 {

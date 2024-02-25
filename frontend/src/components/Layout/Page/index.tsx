@@ -1,6 +1,6 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
-import "../../root.css"
+import "../../../root.css"
 import { Main } from "./styles"
 
 type PageProps = {

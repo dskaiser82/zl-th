@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { AnyAction } from "redux"
 import { ThunkDispatch } from "redux-thunk"
-import { AppState } from "../../reducers"
-import * as actions from "../../actions"
+import { AppState } from "../../../reducers"
+import * as actions from "../../../actions"
 import { StyledInstructions, StyledFlexHero } from "./styles"
 import { LinearProgress } from "@material-ui/core"
-import { Page } from "../Page"
+import { Page } from "../../Layout/Page"
 
 const Recipe = () => {
   const dispatch: ThunkDispatch<AppState, null, AnyAction> = useDispatch()
