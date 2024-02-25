@@ -68,6 +68,7 @@ const Home = () => {
                 checked={ingredients.includes(ingredient)}
                 onChange={(event) => handleIngredient(ingredient, event)}
                 value={ingredient}
+                style={{ color: "var(--palette-third)" }}
               />
             }
             label={ingredient}

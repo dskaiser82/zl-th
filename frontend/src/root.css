@@ -1,4 +1,5 @@
 :root {
+  --background: var(--grayscale-charcoal);
   --bg-padding-md: 148px;
   --border-radius-lg: 1rem;
   --border-radius-md: 0.5rem;
@@ -29,11 +30,13 @@
 .light {
   --foreground: var(--grayscale-charcoal);
   --background: var(--grayscale-white);
+  --third: var(--palette-third-dark);
 }
 
 .dark {
   --foreground: var(--grayscale-white);
   --background: var(--grayscale-charcoal);
+  --third: var(--palette-third);
 }
 
 body {
