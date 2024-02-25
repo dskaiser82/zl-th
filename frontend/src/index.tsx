@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { configureStore } from "@reduxjs/toolkit"
 import Home from "./components/Containers/Home"
 import Recipe from "./components/Containers/Recipe"
-import reducers from "./reducers"
+import reducers from "./store/reducers"
 
 const store = configureStore({
   reducer: reducers,

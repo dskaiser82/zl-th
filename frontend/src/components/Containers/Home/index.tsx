@@ -10,9 +10,9 @@ import Divider from "@material-ui/core/Divider"
 import Button from "@material-ui/core/Button"
 import LinearProgress from "@material-ui/core/LinearProgress"
 
-import * as actions from "../../../actions"
+import * as actions from "../../../store/actions"
 import { AnyAction } from "redux"
-import { AppState } from "../../../reducers"
+import { AppState } from "../../../store/reducers"
 import {
   Ingredient,
   ingredientList,

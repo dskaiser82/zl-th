@@ -1,4 +1,4 @@
-import { IngredientListType, Recipe } from "../types"
+import { IngredientListType, Recipe } from "../../types"
 import { AppDispatch } from "./types"
 
 export const GET_SEARCH = "GET_SEARCH"

@@ -1,5 +1,5 @@
 import { GET_RECIPE, RECEIVE_RECIPE, FAIL_RECIPE } from "../actions"
-import { Recipe } from "../types"
+import { Recipe } from "../../types"
 
 type InitialState = {
   recipeDetails: null | Recipe
