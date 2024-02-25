@@ -10,6 +10,8 @@ export const ThemeButton = () => {
 
   const handleThemeChange = () => {
     dispatch(toggleThemeAction())
+    document.body.classList.toggle("dark", theme.name === "light")
+    document.body.classList.toggle("light", theme.name === "dark")
   }
 
   return (
