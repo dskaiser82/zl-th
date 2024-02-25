@@ -3,6 +3,7 @@ import { baseLayoutStyles } from "../shared"
 
 export const StyledNav = styled.nav`
   display: flex;
+  height: 100px;
   align-items: center;
   justify-content: space-between;
   background-color: ${(props) => props.theme.background};
@@ -18,6 +19,10 @@ export const StyledUl = styled.ul`
   gap: 4px;
   justify-content: space-between;
   list-style-type: none;
+
+  @media (max-width: 1260px) {
+    display: none;
+  }
 `
 
 export const StyledLi = styled.ul``
