@@ -1,6 +1,7 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
 import "../../../root.css"
+import { Nav } from "../Nav"
 import { Main } from "./styles"
 
 type PageProps = {
@@ -20,6 +21,7 @@ const dark = {
 export const Page = (props: PageProps) => {
   return (
     <ThemeProvider theme={dark}>
+      <Nav />
       <Main>{props.children}</Main>
     </ThemeProvider>
   )
