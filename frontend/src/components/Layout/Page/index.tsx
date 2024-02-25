@@ -1,4 +1,5 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import { ThemeProvider } from "styled-components"
 import "../../../root.css"
 import { Nav } from "../Nav"
@@ -21,8 +22,10 @@ const dark = {
 }
 
 export const Page = (props: PageProps) => {
+  const currentTheme = useSelector((state) => state.theme.theme)
+
   return (
-    <ThemeProvider theme={dark}>
+    <ThemeProvider theme={currentTheme === "light" ? light : dark}>
       <Nav />
       <Main>{props.children}</Main>
     </ThemeProvider>
