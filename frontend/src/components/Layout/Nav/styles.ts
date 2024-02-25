@@ -14,6 +14,11 @@ export const StyledNav = styled.nav`
   ${baseLayoutStyles};
 `
 
+export const StyledImg = styled.img`
+  filter: ${(props) =>
+    props.theme.name === "light" ? "invert(100%)" : "invert(0%)"};
+`
+
 export const StyledUl = styled.ul`
   display: flex;
   gap: 4px;
