@@ -1,5 +1,7 @@
 import React from "react"
 import { StyledNav, StyledUl, StyledLi } from "./styles"
+import { useTheme } from "styled-components"
+import { ThemeButton } from "../../Elements/ThemeButton"
 
 export const Nav = () => {
   return (
@@ -9,12 +11,13 @@ export const Nav = () => {
         alt="Zeal logo"
       />
       <StyledUl>
-        <>Why Zeal</>
+        <StyledLi>Why Zeal</StyledLi>
         <StyledLi>Platform </StyledLi>
         <StyledLi>Solutions </StyledLi>
         <StyledLi>Developers </StyledLi>
         <StyledLi>Resources </StyledLi>
       </StyledUl>
+      <ThemeButton />
     </StyledNav>
   )
 }

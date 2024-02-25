@@ -5,7 +5,8 @@ export const StyledNav = styled.nav`
   display: flex;
   background-color: ${(props) => props.theme.background};
   color: ${(props) => props.theme.foreground};
-
+  position: sticky;
+  top: 0;
   ${baseLayoutStyles}
 `
 

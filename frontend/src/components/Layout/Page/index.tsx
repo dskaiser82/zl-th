@@ -9,11 +9,13 @@ type PageProps = {
 }
 
 const light = {
+  name: "light",
   foreground: "var(--grayscale-charcoal)",
   background: "var(--grayscale-white)",
 }
 
 const dark = {
+  name: "dark",
   foreground: "var(--grayscale-white)",
   background: "var(--grayscale-charcoal)",
 }
