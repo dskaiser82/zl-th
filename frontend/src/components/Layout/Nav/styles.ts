@@ -3,11 +3,14 @@ import { baseLayoutStyles } from "../shared"
 
 export const StyledNav = styled.nav`
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: ${(props) => props.theme.background};
   color: ${(props) => props.theme.foreground};
   position: sticky;
   top: 0;
-  ${baseLayoutStyles}
+  padding-right: 12px;
+  ${baseLayoutStyles};
 `
 
 export const StyledUl = styled.ul`
