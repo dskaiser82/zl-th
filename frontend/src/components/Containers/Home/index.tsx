@@ -1,14 +1,7 @@
 import React, { useState, ChangeEvent } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ThunkDispatch } from "redux-thunk"
-import {
-  CardLi,
-  CardLink,
-  CardListItem,
-  CardTitle,
-  CardUl,
-  FlexContainer,
-} from "./styles"
+import { CardLi, CardLink, CardTitle, CardUl, FlexContainer } from "./styles"
 import Input from "@material-ui/core/Input"
 import Checkbox from "@material-ui/core/Checkbox"
 import Card from "@material-ui/core/Card"
@@ -60,10 +53,14 @@ const Home = () => {
       <Input
         autoFocus={true}
         fullWidth={true}
-        placeholder="Search by recipe name"
+        placeholder="Search for recipes"
         onChange={handleSearch}
         value={term}
-        style={{ borderBottom: "1px solid var(--first)" }}
+        style={{
+          borderBottom: "1px solid var(--first)",
+          color: "var(--foreground)",
+          fontSize: "60px",
+        }}
       />
       <div>
         <h3>Ingredients on hand</h3>
@@ -84,7 +81,10 @@ const Home = () => {
         ))}
       </div>
       <Button
-        style={{ backgroundColor: "var(--third)", color: "var(--background)" }}
+        style={{
+          backgroundColor: "var(--third)",
+          color: "var(--background)",
+        }}
         onClick={fetchSearch}
       >
         search
