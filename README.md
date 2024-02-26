@@ -1,5 +1,17 @@
 # What Can You Make
 
+## Post Send Updates
+- Bump the styled-components version to current version
+- Add light mode /  dark mode via Styled compoments Theme Provider and Redux state
+- Add css variables from Zeal site
+- Create Top Nav to "mimic" Zeal's Top Nav and Add a Theme Button to toggle the theme
+- Style pages to utilize new dark/light theme and theme variables
+
+![zeal-th-update](https://github.com/dskaiser82/zl-th/assets/1254851/482c2304-d917-42ff-9dad-6975e5dd5c25)
+
+
+Note: reviewers be sure to yarn install as packages have been updated
+
 ## Enhancements and Features
 
 ## Enhancements
