@@ -1,5 +1,10 @@
 :root {
   --background: var(--grayscale-charcoal);
+  --foreground: var(--grayscale-white);
+  --background: var(--grayscale-charcoal);
+  --first: var(--palette-first);
+  --third: var(--palette-third-dark);
+  --third: var(--palette-third);
   --bg-padding-md: 148px;
   --border-radius-lg: 1rem;
   --border-radius-md: 0.5rem;
@@ -30,12 +35,14 @@
 .light {
   --foreground: var(--grayscale-charcoal);
   --background: var(--grayscale-white);
+  --first: var(--palette-first);
   --third: var(--palette-third-dark);
 }
 
 .dark {
   --foreground: var(--grayscale-white);
   --background: var(--grayscale-charcoal);
+  --first: var(--palette-first-dark);
   --third: var(--palette-third);
 }
 
@@ -53,4 +60,8 @@ body {
 
 h3 {
   font-family: "Mono", Arial, sans-serif;
+}
+
+.MuiInputBase-input.MuiInput-input::placeholder {
+  color: var(--foreground) !important;
 }

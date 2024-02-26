@@ -56,6 +56,7 @@ const Home = () => {
         placeholder="Search by recipe name"
         onChange={handleSearch}
         value={term}
+        style={{ borderBottom: "1px solid var(--first)" }}
       />
       <div>
         <h3>Ingredients on hand</h3>
@@ -75,13 +76,25 @@ const Home = () => {
           />
         ))}
       </div>
-      <Button onClick={fetchSearch}>search</Button>
+      <Button
+        style={{ backgroundColor: "var(--third)", color: "var(--background)" }}
+        onClick={fetchSearch}
+      >
+        search
+      </Button>
       <Divider />
       {recipes && (
         <FlexContainer>
           {recipes.map((recipe: Recipe) => (
             <CardLink href={`/recipe/${recipe._id}`} key={recipe._id}>
-              <Card style={{ width: "300px", padding: "12px", margin: "12px" }}>
+              <Card
+                style={{
+                  width: "300px",
+                  padding: "12px",
+                  margin: "12px",
+                  border: "1px solid var(--foreground)",
+                }}
+              >
                 <h3>{recipe.name}</h3>
                 <ul>
                   {recipe.ingredients?.map((ing: Ingredient) => {

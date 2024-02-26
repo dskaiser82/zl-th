@@ -5,7 +5,7 @@ import { AnyAction } from "redux"
 import { ThunkDispatch } from "redux-thunk"
 import { AppState } from "../../../store/reducers"
 import * as actions from "../../../store/actions"
-import { StyledInstructions, StyledFlexHero } from "./styles"
+import { StyledInstructions, StyledFlexHero, Arrow } from "./styles"
 import { LinearProgress } from "@material-ui/core"
 import { Page } from "../../Layout/Page"
 
@@ -26,7 +26,7 @@ const Recipe = () => {
         href="/"
         style={{ fontSize: "50px", textDecoration: "none", color: "black" }}
       >
-        {"\u2190"}
+        <Arrow>{"\u2190"}</Arrow>
       </a>
       <div>
         {recipeDetails?.name && (

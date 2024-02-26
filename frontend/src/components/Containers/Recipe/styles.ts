@@ -19,3 +19,7 @@ export const StyledInstructions = styled.div`
 export const StyledFlexHero = styled.div`
   ${FlexHeroCSS}
 `
+
+export const Arrow = styled.span`
+  color: var(--foreground);
+`
