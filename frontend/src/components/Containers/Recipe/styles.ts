@@ -23,3 +23,8 @@ export const StyledFlexHero = styled.div`
 export const Arrow = styled.span`
   color: var(--foreground);
 `
+
+export const StyledH1 = styled.h1`
+  font-size: 60px;
+  border-bottom: 1px solid var(--first);
+`

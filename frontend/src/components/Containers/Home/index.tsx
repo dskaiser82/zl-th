@@ -1,7 +1,14 @@
 import React, { useState, ChangeEvent } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ThunkDispatch } from "redux-thunk"
-import { CardLink, FlexContainer } from "./styles"
+import {
+  CardLi,
+  CardLink,
+  CardListItem,
+  CardTitle,
+  CardUl,
+  FlexContainer,
+} from "./styles"
 import Input from "@material-ui/core/Input"
 import Checkbox from "@material-ui/core/Checkbox"
 import Card from "@material-ui/core/Card"
@@ -90,17 +97,17 @@ const Home = () => {
               <Card
                 style={{
                   width: "300px",
-                  padding: "12px",
+                  padding: "20px",
                   margin: "12px",
                   border: "1px solid var(--foreground)",
                 }}
               >
-                <h3>{recipe.name}</h3>
-                <ul>
+                <CardTitle>{recipe.name}</CardTitle>
+                <CardUl>
                   {recipe.ingredients?.map((ing: Ingredient) => {
-                    return <li key={ing._id}>{ing.name} </li>
+                    return <CardLi key={ing._id}>{ing.name} </CardLi>
                   })}
-                </ul>
+                </CardUl>
               </Card>
             </CardLink>
           ))}

@@ -5,7 +5,7 @@ import { AnyAction } from "redux"
 import { ThunkDispatch } from "redux-thunk"
 import { AppState } from "../../../store/reducers"
 import * as actions from "../../../store/actions"
-import { StyledInstructions, StyledFlexHero, Arrow } from "./styles"
+import { StyledInstructions, StyledFlexHero, Arrow, StyledH1 } from "./styles"
 import { LinearProgress } from "@material-ui/core"
 import { Page } from "../../Layout/Page"
 
@@ -31,7 +31,7 @@ const Recipe = () => {
       <div>
         {recipeDetails?.name && (
           <div>
-            <h1> {recipeDetails?.name}</h1>
+            <StyledH1> {recipeDetails?.name}</StyledH1>
             <StyledFlexHero>
               <img
                 style={{ width: "300px" }}
