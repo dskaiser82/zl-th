@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { ThunkDispatch } from "redux-thunk"
-import { CardLink, FlexContainer, HomeWrapper } from "./styles"
+import { CardLi, CardLink, CardTitle, CardUl, FlexContainer } from "./styles"
 import Input from "@material-ui/core/Input"
 import Checkbox from "@material-ui/core/Checkbox"
 import Card from "@material-ui/core/Card"
@@ -10,15 +10,16 @@ import Divider from "@material-ui/core/Divider"
 import Button from "@material-ui/core/Button"
 import LinearProgress from "@material-ui/core/LinearProgress"
 
-import * as actions from "../../actions"
+import * as actions from "../../../store/actions"
 import { AnyAction } from "redux"
-import { AppState } from "../../reducers"
+import { AppState } from "../../../store/reducers"
 import {
   Ingredient,
   ingredientList,
   IngredientListType,
   Recipe,
-} from "../../types"
+} from "../../../types"
+import { Page } from "../../Layout/Page"
 
 const Home = () => {
   const [term, setTerm] = useState("")
@@ -48,13 +49,18 @@ const Home = () => {
   }
 
   return (
-    <HomeWrapper>
+    <Page>
       <Input
         autoFocus={true}
         fullWidth={true}
-        placeholder="Search by recipe name"
+        placeholder="Search for recipes"
         onChange={handleSearch}
         value={term}
+        style={{
+          borderBottom: "1px solid var(--first)",
+          color: "var(--foreground)",
+          fontSize: "60px",
+        }}
       />
       <div>
         <h3>Ingredients on hand</h3>
@@ -67,25 +73,41 @@ const Home = () => {
                 checked={ingredients.includes(ingredient)}
                 onChange={(event) => handleIngredient(ingredient, event)}
                 value={ingredient}
+                style={{ color: "var(--palette-third)" }}
               />
             }
             label={ingredient}
           />
         ))}
       </div>
-      <Button onClick={fetchSearch}>search</Button>
+      <Button
+        style={{
+          backgroundColor: "var(--third)",
+          color: "var(--background)",
+        }}
+        onClick={fetchSearch}
+      >
+        search
+      </Button>
       <Divider />
       {recipes && (
         <FlexContainer>
           {recipes.map((recipe: Recipe) => (
             <CardLink href={`/recipe/${recipe._id}`} key={recipe._id}>
-              <Card style={{ width: "300px", padding: "12px", margin: "12px" }}>
-                <h3>{recipe.name}</h3>
-                <ul>
+              <Card
+                style={{
+                  width: "300px",
+                  padding: "20px",
+                  margin: "12px",
+                  border: "1px solid var(--foreground)",
+                }}
+              >
+                <CardTitle>{recipe.name}</CardTitle>
+                <CardUl>
                   {recipe.ingredients?.map((ing: Ingredient) => {
-                    return <li key={ing._id}>{ing.name} </li>
+                    return <CardLi key={ing._id}>{ing.name} </CardLi>
                   })}
-                </ul>
+                </CardUl>
               </Card>
             </CardLink>
           ))}
@@ -93,7 +115,7 @@ const Home = () => {
       )}
       {isLoading && <LinearProgress />}
       <Divider />
-    </HomeWrapper>
+    </Page>
   )
 }
 

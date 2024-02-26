@@ -3,9 +3,9 @@ import * as ReactDOM from "react-dom/client"
 import { Provider as ReduxProvider } from "react-redux"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { configureStore } from "@reduxjs/toolkit"
-import Home from "./Containers/Home"
-import Recipe from "./Containers/Recipe"
-import reducers from "./reducers"
+import Home from "./components/Containers/Home"
+import Recipe from "./components/Containers/Recipe"
+import reducers from "./store/reducers"
 
 const store = configureStore({
   reducer: reducers,

@@ -1,0 +1,65 @@
+:root {
+  --background: var(--grayscale-charcoal);
+  --foreground: var(--grayscale-white);
+  --first: var(--palette-first);
+  --third: var(--palette-third);
+  --bg-padding-md: 148px;
+  --border-radius-lg: 1rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-sm: 0.25rem;
+  --container-width: 91.67%;
+  --error-color: #ff444e;
+  --gradient-grayscale: linear-gradient(180deg, #191919 58.55%, #0a0a0a 75.76%);
+  --gradient-warm: linear-gradient(93.44deg, #ff7898, #ffad4d);
+  --grayscale-black: #000;
+  --grayscale-charcoal: #191919;
+  --grayscale-dark: #212121;
+  --grayscale-medium: #303030;
+  --grayscale-semi-black: #0c0c0c;
+  --grayscale-light: #c5c5c5;
+  --grayscale-white: #fff;
+  --max-width: 1208px;
+  --nav-bar-height: 74px;
+  --palette-first: #ff7898;
+  --palette-fourth: #22d4ff;
+  --palette-second: #ffad4d;
+  --palette-third: #b893ff;
+  --palette-first-dark: #8a4757;
+  --palette-fourth-dark: #147f99;
+  --palette-second-dark: #99682e;
+  --palette-third-dark: #6e5899;
+}
+
+.light {
+  --foreground: var(--grayscale-charcoal);
+  --background: var(--grayscale-white);
+  --first: var(--palette-first-dark);
+  --third: var(--palette-third-dark);
+}
+
+.dark {
+  --foreground: var(--grayscale-white);
+  --background: var(--grayscale-charcoal);
+  --first: var(--palette-first);
+  --third: var(--palette-third);
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  line-height: 4.25rem;
+  background-color: var(--background);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h3 {
+  font-family: "Mono", Arial, sans-serif;
+}
+
+.MuiInputBase-input.MuiInput-input::placeholder {
+  color: var(--foreground) !important;
+}
